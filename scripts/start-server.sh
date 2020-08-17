@@ -17,6 +17,14 @@ else
     +quit
 fi
 
+echo "---Install Mods---"
+if [ "${MODS}" != "" ]; then
+    ${STEAMCMD_DIR}/steamcmd.sh \
+    +force_install_dir ${SERVER_DIR} \
+    +workshop_download_item ${MODS} \
+    +login anonymous \
+    +quit
+
 echo "---Update Server---"
 if [ "${USERNAME}" == "" ]; then
     if [ "${VALIDATE}" == "true" ]; then
